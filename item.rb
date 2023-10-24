@@ -15,6 +15,11 @@ class Item
     @source = source
     @label = label
     @publish_date = publish_date
+
+    add_author
+    add_genre
+    add_label
+    add_source
   end
 
   def can_be_archived?
