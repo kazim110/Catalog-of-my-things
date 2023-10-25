@@ -47,4 +47,5 @@ class Item
   end
 
   private :can_be_archived?
+
 end
