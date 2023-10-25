@@ -1,7 +1,8 @@
 require_relative 'item'
 
 class MusicAlbum < Item
-  initialize(
+  # rubocop:disable Metrics/ParameterLists
+  def initialize(
     genre,
     author,
     source,
@@ -11,6 +12,7 @@ class MusicAlbum < Item
   )
     super(genre, author, source, label, publish_date)
     @on_spotify = on_spotify
+    # rubocop:enable Metrics/ParameterLists
   end
 
   def can_be_archived?
