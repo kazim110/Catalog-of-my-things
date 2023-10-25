@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This is the App class, which handles application logic.
 class App
   def initialize
@@ -11,7 +9,7 @@ class App
     @authors = []
   end
 
-  def run(option) # rubocop:disable Metrics/CyclomaticComplexity
+  def run(option) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
     case option
     when 1
       list_books
