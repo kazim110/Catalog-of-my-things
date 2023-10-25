@@ -2,7 +2,7 @@
 
 require_relative 'app'
 
-def display_options
+def display_options # rubocop:disable Metrics/MethodLength
   puts "\nPlease choose an option by entering a number:"
   puts '1 - list all books'
   puts '2 - list all music albums'
@@ -26,5 +26,3 @@ def main
   end
   puts 'Thank you for using the app. Goodbye!'
 end
-
-main
