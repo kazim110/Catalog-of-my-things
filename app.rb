@@ -11,7 +11,7 @@ class App
     @authors = []
   end
 
-  def run(option) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
+  def run(option) # rubocop:disable Metrics/CyclomaticComplexity
     case option
     when 1
       list_books
