@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'date'
 
 # This is the Item class, which represents an item with attributes like author, label, genre, and published date.

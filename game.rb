@@ -1,11 +1,18 @@
-# Game class represents a specific type of item with additional properties.
-class Game < Item
-  attr_accessor :last_played_at
+# frozen_string_literal: true
 
-  def initialize(title, publish_date, last_played_at)
+# Game class represents a specific type of item with additional properties.
+
+require_relative 'item'
+require 'date'
+
+class Game < Item
+  attr_accessor :last_played_at, :multiplayer
+
+  def initialize(title, genre, author, source, label, publish_date, last_played_at, multiplayer)
     super(genre, author, source, label, publish_date)
     @title = title
     @last_played_at = last_played_at
+    @multiplayer = multiplayer
   end
 
   def can_be_archived?

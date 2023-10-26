@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This is the App class, which handles application logic.
 class App
   def initialize
