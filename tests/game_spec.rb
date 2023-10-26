@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+
 
 # game_spec.rb
 require_relative '../game'
