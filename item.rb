@@ -11,7 +11,7 @@ class Item
   )
 
   def initialize(genre, author, source, label, publish_date)
-    @id = Math.rand(1..100)
+    @id = rand(1..100)
     @archived = false
     @genre = genre
     @author = author
@@ -21,7 +21,7 @@ class Item
   end
 
   def can_be_archived?
-    Date.new.year - @publish_date.year > 10
+    Date.today.year - @publish_date.year > 10
   end
 
   def move_to_archive
