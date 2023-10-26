@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Game class represents a specific type of item with additional properties.
 
 require_relative 'item'
