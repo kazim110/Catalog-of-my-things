@@ -1,4 +1,4 @@
-require_relative '../genre.rb'
+require_relative '../genre'
 
 describe 'Genre' do
   context "when running method 'add_item'" do
