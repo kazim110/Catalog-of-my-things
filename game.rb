@@ -1,8 +1,8 @@
 # Game class represents a specific type of item with additional properties.
 class Game < Item
-  attr_accessor :last_played_at, :multiplayer
+  attr_reader :title, :last_played_at, :multiplayer, :publish_date
 
-  def initialize(title, publish_date, last_played_at, multiplayer)
+  def initialize(genre, author, source, label, publish_date, title, last_played_at, multiplayer)
     super(genre, author, source, label, publish_date)
     @title = title
     @last_played_at = last_played_at

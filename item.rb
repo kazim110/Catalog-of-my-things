@@ -7,17 +7,26 @@ class Item
     :author,
     :source,
     :label,
-    :publish_date
+    :publish_date,
+    :archived
   )
 
-  def initialize(genre, author, source, label, publish_date)
-    @id = rand(1..100)
+  attr_reader :id
+
+  def initialize(genre, author, source, label, publish_date, id = rand(1..10_000))
+    @id = id
     @archived = false
     @genre = genre
     @author = author
     @source = source
     @label = label
     @publish_date = publish_date
+
+    # Add this item to the corresponding arrays in the classes
+    add_item(@genre)
+    add_item(@author)
+    # add_item(@source)
+    add_item(@label)
   end
 
   def can_be_archived?
@@ -28,20 +37,8 @@ class Item
     @archived = true if can_be_archived?
   end
 
-  def add_genre
-    @genre.add_item(self)
-  end
-
-  def add_author
-    @author.add_item(self)
-  end
-
-  def add_label
-    @label.add_item(self)
-  end
-
-  def add_source
-    @source.add_item(self)
+  def add_item(obj)
+    obj.add_item(self)
   end
 
   private :can_be_archived?
