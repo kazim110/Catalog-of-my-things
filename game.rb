@@ -3,7 +3,7 @@ require_relative 'item'
 class Game < Item
   attr_accessor :last_played_at, :multiplayer, :title, :author
 
-  def initialize(title, genre, last_played_at, multiplayer, author, source, label, _publish_date)
+  def initialize(title, last_played_at, multiplayer, author, _publish_date)
     super(title, genre, author, source, label)
     @last_played_at = last_played_at
     @multiplayer = multiplayer
@@ -23,9 +23,6 @@ def add_game
   print 'Enter the title of the game: '
   title = gets.chomp
 
-  print 'Enter the genre of the game: '
-  genre = gets.chomp
-
   print 'Enter the last played date (YYYY-MM-DD): '
   last_played_at = Date.parse(gets.chomp)
 
@@ -35,16 +32,10 @@ def add_game
   print 'Enter the author: '
   author = gets.chomp
 
-  print 'Enter the source: '
-  source = gets.chomp
-
-  print 'Enter the label: '
-  label = gets.chomp
-
   print 'Enter the publish date (YYYY-MM-DD): '
   publish_date = Date.parse(gets.chomp)
 
-  Game.add_game(@games, title, genre, last_played_at, multiplayer, author, source, label, publish_date)
+  Game.add_game(@games, title, last_played_at, multiplayer, author, publish_date)
 end
 
 def list_games
