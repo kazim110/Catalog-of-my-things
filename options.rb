@@ -13,19 +13,19 @@ module Options
 
   def list_genres(array)
     array.each_with_index do |el, i|
-      print "#{i}. #{el.name}"
+      print "#{i}. #{el.name}\n"
     end
   end
 
   def list_labels(array)
     array.each_with_index do |el, i|
-      print "#{i}. #{el.title}"
+      print "#{i}. #{el.title}\n"
     end
   end
 
   def list_authors(array)
     array.each_with_index do |el, i|
-      print "#{i}. #{el.first_name} #{el.last_name}"
+      print "#{i}. #{el.first_name} #{el.last_name}\n"
     end
   end
 
@@ -37,8 +37,8 @@ module Options
     case select_genre
     when '1'
       if app.genres.length.positive?
-        print "Select an option from the following:\n"
         list_genres(app.genres)
+        print "\nSelect an option from the above:\n"
         option = gets.chomp
         genre = app.genres[option.to_i]
       else
@@ -62,10 +62,10 @@ module Options
     case select_author
     when '1'
       if app.authors.length.positive?
-        print "Select an option from the following:\n"
         list_authors(app.authors)
+        print "\nSelect an option from the above: "
         option = gets.chomp
-        author = app['authors'][option.to_i]
+        author = @authors[option.to_i]
       else
         print 'There are not any authors yet, please add a new one'
         return
@@ -89,7 +89,7 @@ module Options
     when '1'
       if app.labels.length.positive?
         list_labels(app.labels)
-        print 'Select an option from the above: '
+        print "\nSelect an option from the above: "
         option = gets.chomp
         label = app.labels[option.to_i]
         p "Label: #{label}"
@@ -140,8 +140,8 @@ module Options
     case select_genre
     when '1'
       if app.genres.length.positive?
-        print "Select an option from the following:\n"
         list_genres(app.genres)
+        print "\nSelect an option from the above:\n"
         option = gets.chomp
         genre = app.genres[option.to_i]
       else
@@ -174,8 +174,8 @@ module Options
     case select_author
     when '1'
       if app.authors.length.positive?
-        print "Select an option from the following:\n"
         list_authors(app.authors)
+        print "\nSelect an option from the above:\n"
         option = gets.chomp
         author = app.authors[option.to_i]
       else
@@ -208,7 +208,7 @@ module Options
     when '1'
       if app.labels.length.positive?
         list_labels(app.labels)
-        print 'Select an option from the above: '
+        print "\nSelect an option from the above: "
         option = gets.chomp
         label = app.labels[option.to_i]
         p "Label: #{label}"
