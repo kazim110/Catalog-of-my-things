@@ -49,7 +49,8 @@ module Options
       genre = Genre.new(name)
       app.genres.push(genre)
     else
-
+      print "There are not any authors yet, please add a new one"
+      return
     end
 
     author = nil
@@ -75,7 +76,7 @@ module Options
       author = Author.new(first_name, last_name)
       app.authors.push(author)
     else
-
+      return
     end
 
     label = nil
@@ -85,10 +86,11 @@ module Options
     case select_label
     when '1'
       if app.labels.length > 0
-        print "Select an option from the following:\n"
-        list_items(app.labels)
+        list_labels(app.labels)
+        print "Select an option from the above: "
         option = gets.chomp
         label = app.labels[option.to_i]
+        p "Label: #{label}"
       else
         print "There are not any labels yet, please add a new one"
         return
@@ -102,6 +104,7 @@ module Options
       app.labels.push(label)
     else
       print "Invalid option, please try again\n"
+      return
     end
 
     print "Publish date: (yyyy-mm-dd)"
@@ -114,7 +117,15 @@ module Options
     print "Source: "
     source = gets.chomp
     new_album = MusicAlbum.new(genre, author, source, label, publish_date, on_spotify)
+
+    puts "Debugging new album creation:"
+    puts "Genre: #{new_album.genre.inspect}"
+    puts "Author: #{new_album.author.inspect}"
+    puts "Source: #{new_album.source}"
+    puts "Label: #{new_album.label.inspect}"
+    puts "Publish Date: #{new_album.publish_date}"
+    puts "On Spotify: #{new_album.on_spotify}"
+
     app.music_albums.push(new_album)
-    p app.music_albums
   end
 end

@@ -34,7 +34,7 @@ class App
     genre = nil
     label = nil
     source = nil
-    if /(games|books|music_albums)/.match?(name)
+    if /(music_albums|books|games)/.match?(name)
       author = @authors.find { |aut| aut.id == el['author_id'] }
       genre = @genres.find { |gen| gen.id == el['genre_id'] }
       label = @labels.find { |lab| lab.id == el['label_id'] }
@@ -76,7 +76,7 @@ class App
   end
 
   def saveDataToJSON(path, array)
-    return if array.length <= 0
+    return if array.empty?
     data = array.map do |el|
       item = {}
       el.instance_variables.each do |key|
@@ -97,18 +97,22 @@ class App
   end
 
   def saveItemsToJSON(path, array)
-    return if array.length <= 0
+    return unless array.length > 0
+    p "Saving items to path: #{path}"
     data = array.map do |el|
       item = {}
 
       el.instance_variables.each do |key|
         prop_name = key.to_s.split('').slice(1, key.to_s.split('').length).join('')
         if /author|genre|label/.match?(prop_name)
+          p "prop name: #{prop_name}"
+          p "path: #{path}"
           item[prop_name + "_id"] = el.send(prop_name).id
         else
           item[prop_name] = el.send(prop_name) unless prop_name == 'id'
         end
       end
+      p "item: #{item}"
       item
     end
 
@@ -122,7 +126,7 @@ class App
     File.write(path, JSON.generate(data, opts))
   end
 
-  def saveAllData
+  def saveAllData # checked
     saveItemsToJSON('./storage/books.json', @books)
     saveItemsToJSON('./storage/music_albums.json', @music_albums)
     saveItemsToJSON('./storage/games.json', @games)
@@ -132,9 +136,9 @@ class App
   end
 
   def run(option) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
-    @books = fetchData('books')
-    @games = fetchData('games')
-    @music_albums = fetchData('music_albums')
+    @books = fetchData('books') unless @books.length > 0
+    @games = fetchData('games') unless @games.length > 0
+    @music_albums = fetchData('music_albums') unless @music_albums.length > 0
     case option
     when 1
       list_books
@@ -156,6 +160,7 @@ class App
       add_game
     when 10
       saveAllData
+      @music_albums.each {|el| print "#{el.author.first_name}" }
       exit
     else
       puts 'Invalid option'

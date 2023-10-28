@@ -1,11 +1,20 @@
 [
   {
     "archived" : false,
-    "genre_id" : 710,
-    "author_id" : 630,
+    "genre_id" : 392,
+    "author_id" : 7773,
     "source" : null,
-    "label_id" : 1487,
-    "publish_date" : "1986-05-06",
+    "label_id" : 7036,
+    "publish_date" : "2016-05-23",
+    "on_spotify" : true
+  },
+  {
+    "archived" : false,
+    "genre_id" : 392,
+    "author_id" : 5979,
+    "source" : "Internet",
+    "label_id" : 9749,
+    "publish_date" : "2020-07-15",
     "on_spotify" : true
   }
 ]
