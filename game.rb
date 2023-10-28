@@ -3,7 +3,7 @@ require_relative 'item'
 class Game < Item
   attr_accessor :last_played_at, :multiplayer, :title, :author
 
-  def initialize(title, genre, last_played_at, multiplayer, author, source, label, publish_date)
+  def initialize(title, genre, last_played_at, multiplayer, author, source, label, _publish_date)
     super(title, genre, author, source, label)
     @last_played_at = last_played_at
     @multiplayer = multiplayer
@@ -50,9 +50,9 @@ end
 
 def list_games
   if @games.empty?
-    puts "No games available."
+    puts 'No games available.'
   else
-    puts "List of Games:"
+    puts 'List of Games:'
     @games.each_with_index do |game, index|
       puts "#{index + 1}. Title: #{game.title}"
       puts "   Genre: #{game.genre}"
