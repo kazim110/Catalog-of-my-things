@@ -34,13 +34,13 @@ module Options
     genre = nil
     case select_genre
     when '1'
-      if app.genres.length > 0
+      if app.genres.length.positive?
         print "Select an option from the following:\n"
         list_genres(app.genres)
         option = gets.chomp
         genre = app.genres[option.to_i]
       else
-        print "There are not any genres yet, please add a new one"
+        print 'There are not any genres yet, please add a new one'
         return
       end
     when '2'
@@ -49,7 +49,7 @@ module Options
       genre = Genre.new(name)
       app.genres.push(genre)
     else
-      print "There are not any authors yet, please add a new one"
+      print 'There are not any authors yet, please add a new one'
       return
     end
 
@@ -59,13 +59,13 @@ module Options
     select_author = gets.chomp
     case select_author
     when '1'
-      if app.authors.length > 0
+      if app.authors.length.positive?
         print "Select an option from the following:\n"
         list_authors(app.authors)
         option = gets.chomp
-        author = app["authors"][option.to_i]
+        author = app['authors'][option.to_i]
       else
-        print "There are not any authors yet, please add a new one"
+        print 'There are not any authors yet, please add a new one'
         return
       end
     when '2'
@@ -85,14 +85,14 @@ module Options
     select_label = gets.chomp
     case select_label
     when '1'
-      if app.labels.length > 0
+      if app.labels.length.positive?
         list_labels(app.labels)
-        print "Select an option from the above: "
+        print 'Select an option from the above: '
         option = gets.chomp
         label = app.labels[option.to_i]
         p "Label: #{label}"
       else
-        print "There are not any labels yet, please add a new one"
+        print 'There are not any labels yet, please add a new one'
         return
       end
     when '2'
@@ -107,19 +107,19 @@ module Options
       return
     end
 
-    print "Publish date: (yyyy-mm-dd)"
+    print 'Publish date: (yyyy-mm-dd)'
     publish_date = Date.parse(gets.chomp)
 
-    print "On spotify? (y/n)"
+    print 'On spotify? (y/n)'
 
     on_spotify = /y/i.match?(gets.chomp)
 
-    print "Source: "
+    print 'Source: '
     source = Source.new(gets.chomp)
     app.sources.push(source)
     new_album = MusicAlbum.new(genre, author, source, label, publish_date, on_spotify)
 
-    puts "Debugging new album creation:"
+    puts 'Debugging new album creation:'
     puts "Genre: #{new_album.genre.inspect}"
     puts "Author: #{new_album.author.inspect}"
     puts "Source: #{new_album.source}"
@@ -137,13 +137,13 @@ module Options
     select_genre = gets.chomp
     case select_genre
     when '1'
-      if app.genres.length > 0
+      if app.genres.length.positive?
         print "Select an option from the following:\n"
         list_genres(app.genres)
         option = gets.chomp
         genre = app.genres[option.to_i]
       else
-        print "There are not any genres yet, please add a new one"
+        print 'There are not any genres yet, please add a new one'
         return
       end
     when '2'
@@ -152,32 +152,32 @@ module Options
       genre = Genre.new(name)
       app.genres.push(genre)
     else
-      print "There are not any genres yet, please add a new one"
+      print 'There are not any genres yet, please add a new one'
       return
     end
 
     print 'Enter the title of the game: '
     game_title = gets.chomp
-  
+
     print 'Enter the last played date (YYYY-MM-DD): '
     last_played_at = Date.parse(gets.chomp)
-  
+
     print 'Is the game multiplayer? (true/false): '
     multiplayer = gets.chomp.downcase == 'true'
-  
+
     author = nil
     print "1. Select an author\n2. Add a new author\n"
     print "Choose by number\n"
     select_author = gets.chomp
     case select_author
     when '1'
-      if app.authors.length > 0
+      if app.authors.length.positive?
         print "Select an option from the following:\n"
         list_authors(app.authors)
         option = gets.chomp
         author = app.authors[option.to_i]
       else
-        print "There are not any authors yet, please add a new one"
+        print 'There are not any authors yet, please add a new one'
         return
       end
     when '2'
@@ -190,11 +190,11 @@ module Options
     else
       return
     end
-  
+
     print 'Enter the publish date (YYYY-MM-DD): '
     publish_date = Date.parse(gets.chomp)
 
-    print "Source: "
+    print 'Source: '
     source = Source.new(gets.chomp)
     app.sources.push(source)
 
@@ -205,14 +205,14 @@ module Options
     select_label = gets.chomp
     case select_label
     when '1'
-      if app.labels.length > 0
+      if app.labels.length.positive?
         list_labels(app.labels)
-        print "Select an option from the above: "
+        print 'Select an option from the above: '
         option = gets.chomp
         label = app.labels[option.to_i]
         p "Label: #{label}"
       else
-        print "There are not any labels yet, please add a new one"
+        print 'There are not any labels yet, please add a new one'
         return
       end
     when '2'
@@ -226,7 +226,7 @@ module Options
       print "Invalid option, please try again\n"
       return
     end
-  
+
     # Pass the parameters as a hash
 
     new_game = Game.new(genre, author, source, label, publish_date, last_played_at, multiplayer, game_title)

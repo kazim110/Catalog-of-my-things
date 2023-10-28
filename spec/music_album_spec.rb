@@ -1,11 +1,15 @@
 require_relative '../music_album'
+require './label'
+require './genre'
+require './author'
+require './source'
 
 describe 'MusicAlbum' do
   context 'when creating a new MusicAlbum' do
-    genre = 'rock'
-    author = 'RHCP'
-    source = 'source'
-    label = 'music'
+    label = Label.new('label title', 'red')
+    genre = Genre.new('Rock')
+    author = Author.new('Elvis', 'Presley')
+    source = Source.new('Old', 'Grey')
     publish_date = Date.new
     on_spotify = true
 

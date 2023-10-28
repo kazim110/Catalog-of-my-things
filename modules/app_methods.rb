@@ -7,7 +7,8 @@ module Methods
   # create a book
   def add_book
     data = book_inputs
-    book = Book.new(data[:genre], data[:author], data[:source], data[:label], data[:publish_date], data[:publisher], data[:cover_state])
+    book = Book.new(data[:genre], data[:author], data[:source], data[:label], data[:publish_date], data[:publisher],
+                    data[:cover_state])
     @books << book
     puts "\nThanks!"
     puts 'This book created:'

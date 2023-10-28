@@ -13,13 +13,13 @@ module InputTaker
     select_genre = gets.chomp
     case select_genre
     when '1'
-      if @genres.length > 0
+      if @genres.length.positive?
         print "Select an option from the following:\n"
         list_genres(@genres)
         option = gets.chomp
         genre = @genres[option.to_i]
       else
-        print "There are not any genres yet, please add a new one"
+        print 'There are not any genres yet, please add a new one'
         return
       end
     when '2'
@@ -28,7 +28,7 @@ module InputTaker
       genre = Genre.new(name)
       @genres << genre
     else
-      print "There are not any genres yet, please add a new one"
+      print 'There are not any genres yet, please add a new one'
       return
     end
 
@@ -38,13 +38,13 @@ module InputTaker
     select_author = gets.chomp
     case select_author
     when '1'
-      if @authors.length > 0
+      if @authors.length.positive?
         print "Select an option from the following:\n"
         list_authors(@authors)
         option = gets.chomp
         author = @authors[option.to_i]
       else
-        print "There are not any authors yet, please add a new one"
+        print 'There are not any authors yet, please add a new one'
         return
       end
     when '2'
@@ -64,14 +64,14 @@ module InputTaker
     select_label = gets.chomp
     case select_label
     when '1'
-      if @labels.length > 0
+      if @labels.length.positive?
         list_labels(@labels)
-        print "Select an option from the above: "
+        print 'Select an option from the above: '
         option = gets.chomp
         label = @labels[option.to_i]
         p "Label: #{label}"
       else
-        print "There are not any labels yet, please add a new one"
+        print 'There are not any labels yet, please add a new one'
         return
       end
     when '2'
@@ -86,7 +86,7 @@ module InputTaker
       return
     end
 
-    print "Source: "
+    print 'Source: '
     source = Source.new(gets.chomp)
     @sources << source
 
