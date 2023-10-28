@@ -7,6 +7,7 @@ require 'securerandom'
 require 'date'
 
 # This is the App class, which handles application logic.
+require_relative 'game'
 class App
   def initialize
     @books = loadbook
