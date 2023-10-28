@@ -11,6 +11,20 @@ CREATE TABLE genres (
   name VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE games (
+  id SERIAL PRIMARY KEY,
+  genre_id INT,
+  author_id INT,
+  label_id INT,
+  published_date DATE,
+  archived BOOLEAN,
+  multiplayer BOOLEAN,
+  last_played_at DATE,
+  FOREIGN KEY(genre_id) REFERENCES genres(id),
+  FOREIGN KEY(author_id) REFERENCES authors(id),
+  FOREIGN KEY(label_id) REFERENCES labels(id)
+);
+
 CREATE TABLE Books(
   id SERIAL PRIMARY KEY,
   genre_id INT,

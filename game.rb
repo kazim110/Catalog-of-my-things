@@ -1,8 +1,8 @@
 require_relative 'item'
 class Game < Item
   attr_accessor :last_played_at, :multiplayer, :title, :author
-  def initialize(title, last_played_at, multiplayer, author, publish_date)
-    super(title, nil, nil, nil, publish_date) # Pass nil for unused parameters
+  def initialize(genre, author, source, label, publish_date, last_played_at, multiplayer, title)
+    super(genre, author, source, label, publish_date)
     @title = title
     @last_played_at = last_played_at
     @multiplayer = multiplayer

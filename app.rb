@@ -5,6 +5,8 @@ require_relative 'label'
 require_relative 'options'
 require_relative 'music_album'
 require_relative 'book'
+require_relative 'game'
+require_relative 'source'
 require 'json'
 require 'date'
 
@@ -15,10 +17,12 @@ class App
     :games,
     :genres,
     :labels,
-    :authors
+    :authors,
+    :sources
   )
 
   include Options
+  include Methods
 
   def initialize
     @books = []
@@ -27,6 +31,7 @@ class App
     @genres = fetchData('genres')
     @labels = fetchData('labels')
     @authors = fetchData('authors')
+    @sources = fetchData('sources')
   end
 
   def createObjects(name, el)
@@ -35,10 +40,11 @@ class App
     label = nil
     source = nil
     if /(music_albums|books|games)/.match?(name)
+      p "Sources length: ", @sources
       author = @authors.find { |aut| aut.id == el['author_id'] }
       genre = @genres.find { |gen| gen.id == el['genre_id'] }
       label = @labels.find { |lab| lab.id == el['label_id'] }
-      # source = @sources.find { |src| src.id == el.source_id }
+      source = @sources.find { |src| src.id == el['source_id'] }
     end
     case name
     when "genres"
@@ -47,10 +53,10 @@ class App
       return Author.new(el['first_name'], el['last_name'], el['id'])
     when "labels"
       return Label.new(el['title'], el['color'], el['id'])
-    when "source"
-      # Pending code for creating Source class objects
+    when "sources"
+      return Source.new(el['name'], el['id'])
     when "games"
-      return Game.new(genre, author, source, label, el['publish_date'])
+      return Game.new(genre, author, source, label, el['publish_date'], el['last_played_at'], el['multiplayer'], el['title'])
     when "books"
       return Book.new(genre, author, source, label, el['publish_date'], el['publisher'], el['cover_state'])
     when "music_albums"
@@ -104,7 +110,7 @@ class App
 
       el.instance_variables.each do |key|
         prop_name = key.to_s.split('').slice(1, key.to_s.split('').length).join('')
-        if /author|genre|label/.match?(prop_name)
+        if /author|genre|label|source/.match?(prop_name)
           p "prop name: #{prop_name}"
           p "path: #{path}"
           item[prop_name + "_id"] = el.send(prop_name).id
@@ -133,6 +139,7 @@ class App
     saveDataToJSON('./storage/genres.json', @genres)
     saveDataToJSON('./storage/labels.json', @labels)
     saveDataToJSON('./storage/authors.json', @authors)
+    saveDataToJSON('./storage/sources.json', @sources)
   end
 
   def run(option) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
@@ -157,7 +164,7 @@ class App
     when 8
       add_music_album(self)
     when 9
-      add_game
+      add_game(self)
     when 10
       saveAllData
       @music_albums.each {|el| print "#{el.author.first_name}" }
