@@ -13,7 +13,6 @@ class Game < Item
     super && (Date.new.year - @last_played_at.year > 2)
   end
 
-  # You can define a class method to add a game to a collection of games.
   def self.add_game(games, title, genre, last_played_at, multiplayer, author, source, label, publish_date)
     new_game = Game.new(title, genre, last_played_at, multiplayer, author, source, label, publish_date)
     games << new_game
