@@ -1,16 +1,21 @@
 require_relative 'item'
 class Game < Item
   attr_accessor :last_played_at, :multiplayer, :title, :author
-  def initialize(title, last_played_at, multiplayer, author, publish_date)
-    super(title, nil, nil, nil, publish_date) # Pass nil for unused parameters
+
+  # rubocop:disable Metrics/ParameterLists
+  def initialize(genre, author, source, label, publish_date, last_played_at, multiplayer, title)
+    super(genre, author, source, label, publish_date)
     @title = title
     @last_played_at = last_played_at
     @multiplayer = multiplayer
     @author = author
+    # rubocop:enable Metrics/ParameterLists
   end
+
   def can_be_archived?
     super && (Date.new.year - @last_played_at.year > 2)
   end
+
   # Use a hash to encapsulate the parameters
   def self.add_game(games, game_params)
     new_game = Game.new(game_params[:title], game_params[:last_played_at], game_params[:multiplayer],
@@ -18,6 +23,7 @@ class Game < Item
     games << new_game
   end
 end
+
 def add_game
   print 'Enter the title of the game: '
   title = gets.chomp
@@ -33,6 +39,7 @@ def add_game
   Game.add_game(@games, title: title, last_played_at: last_played_at, multiplayer: multiplayer, author: author,
                         publish_date: publish_date)
 end
+
 def list_games
   if @games.empty?
     puts 'No games available.'

@@ -1,11 +1,16 @@
 require './label'
 require './item'
+require './genre'
+require './author'
+require './source'
 
 describe Label do
   context 'add_item method test' do
     label = Label.new('label title', 'red')
-    item = Item.new('genre', 'author', 'source', label, Date.new(2010, 1, 1))
-    label.add_item(item)
+    genre = Genre.new('Action')
+    author = Author.new('Mary', 'Shelley')
+    source = Source.new('Old', 'Grey')
+    item = Item.new(genre, author, source, label, Date.new(2010, 1, 1))
 
     it 'the label should be present in item' do
       compare = label == item.label

@@ -14,6 +14,7 @@ class Item
 
   attr_reader :id
 
+  # rubocop:disable Metrics/ParameterLists
   def initialize(genre, author, source, label, publish_date, id = rand(1..10_000))
     @id = id
     @archived = false
@@ -28,6 +29,7 @@ class Item
     add_item(@author)
     # add_item(@source)
     add_item(@label)
+    # rubocop:enable Metrics/ParameterLists
   end
 
   def can_be_archived?

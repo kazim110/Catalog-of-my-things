@@ -1,0 +1,12 @@
+[
+  {
+    "archived" : false,
+    "genre_id" : 8016,
+    "author_id" : 8213,
+    "source_id" : 4499,
+    "label_id" : 8225,
+    "publish_date" : null,
+    "publisher" : "Book Publisher",
+    "cover_state" : "soft"
+  }
+]
