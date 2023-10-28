@@ -8,10 +8,11 @@ def display_options
   puts '4 - list all genres'
   puts '5 - list all labels'
   puts '6 - list all authors'
-  puts '7 - Add a book'
-  puts '8 - Add a music album'
-  puts '9 - Add a game'
-  puts '10 - Exit'
+  puts '7 - list all sources'
+  puts '8 - Add a book'
+  puts '9 - Add a music album'
+  puts '10 - Add a game'
+  puts '11 - Exit'
 end
 
 def main

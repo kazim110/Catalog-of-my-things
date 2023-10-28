@@ -29,6 +29,12 @@ module Options
     end
   end
 
+  def list_sources(array)
+    array.each_with_index do |el, i|
+      print "#{i}. #{el.name}\n"
+    end
+  end
+
   def add_music_album(app)
     print "1. Select a genre\n2. Add a new genre\n"
     print "Choose by number\n"
