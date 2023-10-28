@@ -13,8 +13,8 @@ class Game < Item
     super && (Date.new.year - @last_played_at.year > 2)
   end
 
-  def self.add_game(games, title, genre, last_played_at, multiplayer, author, source, label, publish_date)
-    new_game = Game.new(title, genre, last_played_at, multiplayer, author, source, label, publish_date)
+  def self.add_game(games, title, last_played_at, multiplayer, author, publish_date)
+    new_game = Game.new(title, last_played_at, multiplayer, author, publish_date)
     games << new_game
   end
 end
