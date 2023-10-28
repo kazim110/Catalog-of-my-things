@@ -3,5 +3,10 @@
     "id" : 6414,
     "title" : "Classic",
     "color" : "White"
+  },
+  {
+    "id" : 8225,
+    "title" : "Old",
+    "color" : "brown"
   }
 ]

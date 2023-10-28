@@ -9,6 +9,8 @@ require_relative 'game'
 require_relative 'source'
 require 'json'
 require 'date'
+require_relative 'modules/app_methods'
+require_relative 'modules/input_taker'
 
 class App
   attr_accessor(
@@ -23,6 +25,7 @@ class App
 
   include Options
   include Methods
+  include InputTaker
 
   def initialize
     @books = []
