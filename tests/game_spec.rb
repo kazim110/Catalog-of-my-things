@@ -1,4 +1,5 @@
 # game_spec.rb
+
 require_relative '../game'
 
 require 'date'

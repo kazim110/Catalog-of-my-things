@@ -17,7 +17,8 @@ class Game < Item
 
   # Use a hash to encapsulate the parameters
   def self.add_game(games, game_params)
-    new_game = Game.new(game_params[:title], game_params[:last_played_at], game_params[:multiplayer], game_params[:author], game_params[:publish_date])
+    new_game = Game.new(game_params[:title], game_params[:last_played_at], game_params[:multiplayer],
+                        game_params[:author], game_params[:publish_date])
     games << new_game
   end
 end
@@ -39,8 +40,10 @@ def add_game
   publish_date = Date.parse(gets.chomp)
 
   # Pass the parameters as a hash
-  Game.add_game(@games, title: title, last_played_at: last_played_at, multiplayer: multiplayer, author: author, publish_date: publish_date)
+  Game.add_game(@games, title: title, last_played_at: last_played_at, multiplayer: multiplayer, author: author,
+                        publish_date: publish_date)
 end
+
 def list_games
   if @games.empty?
     puts 'No games available.'
@@ -48,10 +51,6 @@ def list_games
     puts 'List of Games:'
     @games.each_with_index do |game, index|
       puts "#{index + 1}. Title: #{game.title}"
-      puts "   Genre: #{game.genre}"
-      puts "   Last Played Date: #{game.last_played_at}"
-      puts "   Multiplayer: #{game.multiplayer ? 'Yes' : 'No'}"
-      # You can include more details here as needed.
       puts '------------------------------------'
     end
   end

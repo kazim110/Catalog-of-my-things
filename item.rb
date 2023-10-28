@@ -1,6 +1,7 @@
+# This is the Item class, which represents an item with attributes like author, label, genre, and published date.
+
 require 'date'
 
-# This is the Item class, which represents an item with attributes like author, label, genre, and published date.
 class Item
   attr_accessor(
     :genre,
