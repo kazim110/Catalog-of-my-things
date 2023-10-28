@@ -49,15 +49,16 @@ def add_game
 end
 
 def list_games
-    if @games.empty?
-      puts "No games available."
-    else
-      puts "List of Games:"
-      @games.each_with_index do |game, index|
-        puts "#{index + 1}. Title: #{game.title}"
-        puts "   Genre: #{game.genre}"
-        puts "   Last Played Date: #{game.last_played_at}"
-        puts "   Multiplayer: #{game.multiplayer ? 'Yes' : 'No'}"
-        puts '------------------------------------'
-      end
+  if @games.empty?
+    puts "No games available."
+  else
+    puts "List of Games:"
+    @games.each_with_index do |game, index|
+      puts "#{index + 1}. Title: #{game.title}"
+      puts "   Genre: #{game.genre}"
+      puts "   Last Played Date: #{game.last_played_at}"
+      puts "   Multiplayer: #{game.multiplayer ? 'Yes' : 'No'}"
+      puts '------------------------------------'
+    end
   end
+end
