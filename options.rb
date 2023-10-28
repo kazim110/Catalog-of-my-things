@@ -200,7 +200,6 @@ module Options
     source = Source.new(gets.chomp)
     app.sources.push(source)
 
-
     label = nil
     print "1. Select a label\n2. Add a new label\n"
     print "Choose by number\n"
