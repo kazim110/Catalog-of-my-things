@@ -1,13 +1,24 @@
+require_relative 'label'
+require_relative 'storedata'
+require_relative 'loaddata'
+require_relative 'modules/app_methods'
+require_relative 'modules/input_taker'
+require 'securerandom'
+require 'date'
+
 # This is the App class, which handles application logic.
 class App
   def initialize
-    @books = []
+    @books = loadbook
     @music_albums = []
     @games = []
     @genres = []
-    @labels = []
+    @labels = loadlabel
     @authors = []
   end
+
+  include InputTaker
+  include Methods
 
   def run(option) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
     case option
@@ -30,9 +41,16 @@ class App
     when 9
       add_game
     when 10
-      exit
+      exit_app
     else
       puts 'Invalid option'
     end
+  end
+
+  def exit_app
+    store_label(@labels)
+    store_books(@books)
+    puts 'Goodbye!'
+    exit
   end
 end

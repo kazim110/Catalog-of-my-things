@@ -24,3 +24,5 @@ def main
   end
   puts 'Thank you for using the app. Goodbye!'
 end
+
+main
