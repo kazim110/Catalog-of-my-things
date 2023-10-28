@@ -57,8 +57,7 @@ def list_games
         puts "#{index + 1}. Title: #{game.title}"
         puts "   Genre: #{game.genre}"
         puts "   Last Played Date: #{game.last_played_at}"
-        puts "   Multiplayer: #{game.multiplayer ? 'Yes' : 'No'}"10
+        puts "   Multiplayer: #{game.multiplayer ? 'Yes' : 'No'}"
         puts '------------------------------------'
       end
-    end
   end
