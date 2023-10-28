@@ -93,6 +93,17 @@ Then, a list of actions will display to you on the terminal, type the correspond
 - [LinkedIn](https://www.linkedin.com/in/gumaro-monroy-vazquez-1705aa165/)
 - [Wellfound](https://wellfound.com/u/maro-monroy)
 
+👤 **Kazim Mohammadi**
+
+- GitHub: [@kazim110](https://github.com/kazim110)
+- Twitter: [@kazim471](https://twitter.com/kazim471)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kazim-mohammadi/)
+
+👤 **Macherki Nessrine**
+- GitHub: [@githubhandle](https://github.com/Nessrine88)
+- Twitter: [@twitterhandle](https://twitter.com/Nessour88)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nessrine-macherki-86959196/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
