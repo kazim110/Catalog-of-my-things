@@ -87,6 +87,12 @@ Then, a list of actions will display to you on the terminal, type the correspond
 
 ## 👥 Authors <a name="authors"></a>
 
+👤 **Macherki Nessrine**
+
+- GitHub: [@githubhandle](https://github.com/Nessrine88)
+- Twitter: [@twitterhandle](https://twitter.com/Nessour88)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nessrine-macherki-86959196/)
+
 👤 **Gumaro Monroy Vazquez**
 
 - [GitHub](https://github.com/Movgto)
