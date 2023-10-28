@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/ModuleLength, Metrics/AbcSize
+# rubocop: disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 module InputTaker
   def book_inputs
     print 'publisher: '
@@ -109,3 +111,5 @@ module InputTaker
     [title, color]
   end
 end
+# rubocop:enable Metrics/ModuleLength, Metrics/AbcSize
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity

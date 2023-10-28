@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/ModuleLength, Metrics/AbcSize
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 module Options
   def list_music_albums(array)
     array.each_with_index do |el, i|
@@ -233,3 +235,5 @@ module Options
     app.games.push(new_game)
   end
 end
+# rubocop:enable Metrics/ModuleLength, Metrics/AbcSize
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity

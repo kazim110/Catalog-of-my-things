@@ -37,7 +37,7 @@ class App
     @sources = fetch_data('sources')
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
+  # rubocop:disable Metrics/CyclomaticComplexity
   def create_objects(name, elem)
     author = nil
     genre = nil
@@ -67,6 +67,7 @@ class App
     when 'music_albums'
       MusicAlbum.new(genre, author, source, label, elem['publish_date'], elem['on_spotify'])
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
   end
 
   def fetch_data(name)
@@ -103,7 +104,6 @@ class App
     File.write(path, JSON.generate(data, opts))
   end
 
-  # rubocop:disable Metrics/MethodLength
   def save_items_to_json(path, array)
     return unless array.length.positive?
 
@@ -146,7 +146,7 @@ class App
     save_data_to_json('./storage/sources.json', @sources)
   end
 
-  def run(option) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
+  def run(option) # rubocop:disable Metrics/CyclomaticComplexity
     @books = fetch_data('books') unless @books.length.positive?
     @games = fetch_data('games') unless @games.length.positive?
     @music_albums = fetch_data('music_albums') unless @music_albums.length.positive?
