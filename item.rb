@@ -11,7 +11,7 @@ class Item
   )
 
   def initialize(genre, author, source, label, publish_date)
-    @id = Math.rand(1..100)
+    @id = rand(1..100)
     @archived = false
     @genre = genre
     @author = author

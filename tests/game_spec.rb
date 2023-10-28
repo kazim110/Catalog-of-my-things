@@ -1,5 +1,6 @@
 # game_spec.rb
 require_relative '../game'
+
 require 'date'
 
 RSpec.describe Game do
