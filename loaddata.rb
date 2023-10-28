@@ -2,7 +2,6 @@ require_relative 'label'
 require_relative 'book'
 require 'json'
 
-
 def loadlabel
   labels = []
   return labels if File.empty?('json/label.json')
