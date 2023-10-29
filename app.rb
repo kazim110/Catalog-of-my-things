@@ -172,7 +172,7 @@ class App
     when 10
       add_game(self)
     when 11
-      saveAllData
+      save_all_data
       @music_albums.each { |el| print el.author.first_name }
       exit
     else
