@@ -1,5 +1,11 @@
 CREATE DATABASE catalogs
 
+CREATE TABLE authors (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(30),
+    last_name VARCHAR(30)
+);
+
 CREATE TABLE labels (
   id SERIAL PRIMARY KEY,
   title VARCHAR(30),

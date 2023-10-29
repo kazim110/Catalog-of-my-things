@@ -164,7 +164,7 @@ class App
     when 6
       list_authors(authors)
     when 7
-      list_sources(self.sources)
+      list_sources(sources)
     when 8
       add_book
     when 9
@@ -173,7 +173,7 @@ class App
       add_game(self)
     when 11
       save_all_data
-      @music_albums.each {|el| print "#{el.author.first_name}" }
+      @music_albums.each { |el| print el.author.first_name }
       exit
     else
       puts 'Invalid option'
