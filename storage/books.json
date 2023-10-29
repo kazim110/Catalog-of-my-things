@@ -18,5 +18,15 @@
     "publish_date" : null,
     "publisher" : "publisher 2",
     "cover_state" : "good"
+  },
+  {
+    "archived" : false,
+    "genre_id" : 668,
+    "author_id" : 8213,
+    "source_id" : 3509,
+    "label_id" : 6414,
+    "publish_date" : null,
+    "publisher" : "publisher 3",
+    "cover_state" : "bad"
   }
 ]

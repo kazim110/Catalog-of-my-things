@@ -9,7 +9,7 @@ class Genre
 
   # item: Item class object
   def add_item(item)
-    @items.push(item)
+    @items << item
     item.genre = self
   end
 end
