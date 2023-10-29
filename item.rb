@@ -27,7 +27,7 @@ class Item
     # Add this item to the corresponding arrays in the classes
     add_item(@genre)
     add_item(@author)
-    # add_item(@source)
+    add_item(@source)
     add_item(@label)
     # rubocop:enable Metrics/ParameterLists
   end
